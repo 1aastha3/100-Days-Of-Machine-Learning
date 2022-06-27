@@ -1,0 +1,6 @@
+RESOURCES 
+
+1- https://towardsdatascience.com/minimizing-the-cost-function-gradient-descent-a5dd6b5350e1
+2- Welch labs yt neural networks playlist
+3- Statquest
+4- 3b1b neural network

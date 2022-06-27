@@ -18,7 +18,7 @@ class LR_model:
         self.epoch = epoch
         self.reg = argument["regularization"]
         self.grad_descent = argument["gradient descent"]
-        self.lambda = argument["lambda"]
+        self.lamda = argument["lambda"]
         self.batch_size = argument["batch_size"]
         
 ## creating a function where we pass our training set, initialize weights, bias and make cost plots
@@ -60,11 +60,11 @@ class LR_model:
 ## we are adding regularization methods: R1: bias = lamda*sum(weights)**2 and R2: bias = lambda*sum(abs(weights))
         
             if(self.reg == "R1"):
-                Reg = self.lambda*(np.sum(np.square(w)))
+                Reg = self.lamda*(np.sum(np.square(w)))
                 _Reg = self.lamda * w
                 
             elif(self.reg =="R2"):
-                Reg = self.lambda*(np.sum(np.abs(w)))
+                Reg = self.lamda*(np.sum(np.abs(w)))
                 _Reg = self.lamda * np.sign(w)
                 
 ## changing weight and bias gradients
@@ -77,11 +77,24 @@ class LR_model:
             self.b = self.b - b_g*self.lr
             
             cost.append((1/(2*n))*R.T.dot(R) + Reg)
+           
             
         return cost
     
+    def error_analysis(x,y):
+        rmse = np.sqrt(np.square(y-x.dot(self.w)+self.b).mean())
+        r_squared = 1 - (np.square(y-x.dot(self.w)+self.b).mean())/(np.square(y-y.mean()))
+        
+        errors = {'root_mean_square' : rmse,
+                  'r_squared' : r_squared}
+        
+        return errors
+    
     def __test(self, x, y):
-        return x.dot(self.w) + self.b
+        
+        final_errors = self.error_analysis(x,y)
+        Y_pred = x.dot(self.w) + self.b
+        return Y_pred, final_errors
     
         
                 

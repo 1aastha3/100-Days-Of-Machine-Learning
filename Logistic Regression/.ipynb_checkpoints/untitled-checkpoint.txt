@@ -1,0 +1,7 @@
+https://stats.stackexchange.com/questions/193473/loss-function-for-multinomial-logistic-regression-cannot-find-its-derivative
+
+https://math.stackexchange.com/questions/1428344/what-is-the-derivation-of-the-derivative-of-softmax-regression-or-multinomial-l
+
+http://people.tamu.edu/~sji/classes/LR.pdf
+
+https://towardsdatascience.com/multiclass-logistic-regression-from-scratch-9cc0007da372
